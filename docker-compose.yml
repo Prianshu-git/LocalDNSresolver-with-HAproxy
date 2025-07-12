@@ -1,0 +1,40 @@
+version: '3.8'
+
+networks:
+  custom_bridge:
+    external: true
+
+services:
+  dns:
+    image: internetsystemsconsortium/bind9:9.18
+    volumes:
+      - ./bind:/etc/bind
+    ports:
+      - "8053:53/udp"
+      - "8053:53/tcp"
+    networks:
+      - custom_bridge
+
+  haproxy:
+    image: haproxy:latest
+    volumes:
+      - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - custom_bridge
+
+  web1:
+    image: nginx:latest
+    volumes:
+      - ./web/web1:/usr/share/nginx/html
+    networks:
+      - custom_bridge
+
+  web2:
+    image: nginx:latest
+    volumes:
+      - ./web/web2:/usr/share/nginx/html
+    networks:
+      - custom_bridge
