@@ -1,4 +1,0 @@
-zone "internal.lan" {
-    type master;
-    file "/etc/bind/db.internal.lan";
-};
