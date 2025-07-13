@@ -1,40 +1,61 @@
-version: '3.8'
-
-networks:
-  custom_bridge:
-    external: true
+version: "3.9"
 
 services:
-  dns:
-    image: internetsystemsconsortium/bind9:9.18
+  bind-primary:
+    image: internetsystemsconsortium/bind9:9.16
+    container_name: bind-primary
+    ports:
+      - "53:53/udp"
+      - "53:53/tcp"
     volumes:
       - ./bind:/etc/bind
-    ports:
-      - "8053:53/udp"
-      - "8053:53/tcp"
     networks:
-      - custom_bridge
+      internal_net:
+        ipv4_address: 192.168.100.10
+
+  bind-secondary:
+    image: internetsystemsconsortium/bind9:9.16
+    container_name: bind-secondary
+    command: -g
+    environment:
+      - BIND9_USER=root
+    volumes:
+      - ./bind:/etc/bind
+    networks:
+      internal_net:
+        ipv4_address: 192.168.100.11
 
   haproxy:
-    image: haproxy:latest
-    volumes:
-      - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+    image: haproxy:2.8
+    container_name: haproxy
     ports:
       - "80:80"
-      - "443:443"
+    volumes:
+      - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
     networks:
-      - custom_bridge
+      internal_net:
+        ipv4_address: 192.168.100.100
+    depends_on:
+      - bind-primary
 
   web1:
-    image: nginx:latest
+    image: nginx:alpine
+    container_name: web1
     volumes:
-      - ./web/web1:/usr/share/nginx/html
+      - ./web/web1:/usr/share/nginx/html:ro
     networks:
-      - custom_bridge
+      internal_net:
+        ipv4_address: 192.168.100.21
 
   web2:
-    image: nginx:latest
+    image: nginx:alpine
+    container_name: web2
     volumes:
-      - ./web/web2:/usr/share/nginx/html
+      - ./web/web2:/usr/share/nginx/html:ro
     networks:
-      - custom_bridge
+      internal_net:
+        ipv4_address: 192.168.100.22
+
+networks:
+  internal_net:
+    external: true
