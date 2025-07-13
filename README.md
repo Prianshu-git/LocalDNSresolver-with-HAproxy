@@ -81,5 +81,5 @@ docker logs -f haproxy                                       //view live logs fo
 docker exec -it bind tail -f /var/log/named/named.log        //Live DNS logs
 ```
 
-👨‍💻 Author
-Prianshu-git :purple_heart:
+## Author
+## Prianshu-git :purple_heart:
