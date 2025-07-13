@@ -7,3 +7,12 @@ options {
     listen-on { any; };
     allow-transfer { none; };
 };
+
+logging {
+  channel default_log {
+    file "/var/log/named/named.log";
+    severity info;
+    print-time yes;
+  };
+  category default { default_log; };
+};
