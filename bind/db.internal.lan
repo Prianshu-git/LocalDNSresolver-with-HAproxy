@@ -1,21 +1,15 @@
-$TTL 86400
-@   IN  SOA ns.internal.lan. admin.internal.lan. (
-        2023101001 ; Serial
-        3600       ; Refresh
-        1800       ; Retry
-        604800     ; Expire
-        86400      ; Negative Cache TTL
-)
+$TTL 604800
+@       IN      SOA     ns1.internal.lan. admin.internal.lan. (
+                             3         ; Serial
+                        604800         ; Refresh
+                         86400         ; Retry
+                       2419200         ; Expire
+                         604800 )      ; Negative Cache TTL
 
-; Name servers
-@   IN  NS  ns.internal.lan.
+@       IN      NS      ns1.internal.lan.
+@       IN      NS      ns2.internal.lan.
 
-; A records for name servers
-ns  IN  A   192.168.1.10
-
-; A records for other hosts
-web1    IN  A   192.168.1.20
-web2    IN  A   192.168.1.21
-
-; CNAME records
-www     IN  CNAME   web1.internal.lan.
+ns1     IN  A   192.168.100.10
+ns2     IN  A   192.168.100.11
+web1    IN  A   192.168.100.21
+web2    IN  A   192.168.100.22
