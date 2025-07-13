@@ -1,20 +1,9 @@
 options {
     directory "/var/cache/bind";
-
-    // Forwarders
-    forwarders {
-        8.8.8.8; // Google Public DNS
-        8.8.4.4; // Google Public DNS
-    };
-
-    // Allow queries from local network
-    allow-query { localnets; };
-
-    // Allow recursive queries
-    recursion yes;
-
-    // DNSSEC validation
+    allow-query { any; };
+    forwarders { 8.8.8.8; };
     dnssec-validation auto;
-
-    // Additional options can be added here
+    auth-nxdomain no;
+    listen-on { any; };
+    allow-transfer { none; };
 };
