@@ -1,11 +1,15 @@
 # DNS-Driven L7 Proxy Infrastructure with HAProxy & BIND
+
 <div align="center">
-<img width="500" height="500" alt="Gemini_Generated_Image_d11e2nd11e2nd11e-removebg-preview" src="https://github.com/user-attachments/assets/50ad92d9-dc83-4afa-8f0a-b146e110dbdd" />
+<img width="500" height="500" alt="Gemini_Generated_Image_d11e2nd11e2nd11e-removebg-preview" src="https://github.com/user-attachments/assets/5d337cb1-2462-40c6-a9c6-88bb2fc441c7" alt="Logo" width="150"/>
 </div>
 
-![Alpine Linux](https://img.shields.io/badge/Alpine_Linux-%230D597F.svg?style=for-the-badge&logo=alpine-linux&logoColor=white)![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)
+![Alpine Linux](https://img.shields.io/badge/Alpine_Linux-%230D597F.svg?style=for-the-badge&logo=alpine-linux&logoColor=white) 
+![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
+[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
 
 This project contains the files for implementing a local containerized infrastructure with internal DNS-based service resolution with BIND and HAProxy acting as a Layer 7 (HTTP) load balancer. This simulates a near production scenario for service discovery and routing setup.
 ## System Arch
