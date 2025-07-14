@@ -68,8 +68,7 @@ curl http://localhost
 
 the HAproxy accepts the Http request since its operating on L7 mode,it parses the full HTTP request to URL path,HTTP headers,Methods(GET,POST,etc.)
 
-HAProxy resolves web1.internal.lan and web2.internal.lan via BIND9 DNS.This lets you dynamically register, scale, or replace services without hardcoding IPs.\
-
+web1-1 and web2-1 running Nginx containers each is listening on port 80 inside the container but not exposed directly to the host (they're only reachable by HAProxy)it resolves web1.internal.lan and web2.internal.lan via BIND9 DNS.This lets you dynamically register, scale, or replace services without hardcoding IPs.
 ## Support Material
 
 ![IMG_6094](https://github.com/user-attachments/assets/82da4a75-29ce-474a-8651-3160287ca179)![IMG_6096](https://github.com/user-attachments/assets/79a6842a-48fe-4382-bc6a-703a02f8413d)
