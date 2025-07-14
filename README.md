@@ -73,6 +73,9 @@ web1-1 and web2-1 running Nginx containers each is listening on port 80 inside t
 
 ![IMG_6097](https://github.com/user-attachments/assets/80d394a0-851a-40d1-a267-68ee06fc382c)![IMG_6095](https://github.com/user-attachments/assets/5372541a-ade1-4daa-86cc-a456ff41cdbf)
 
+![IMG_6102](https://github.com/user-attachments/assets/e046a214-a098-4a5e-afd8-1545cbce9998)
+![IMG_6101](https://github.com/user-attachments/assets/58be8ba9-a2f7-4379-864a-45dbfbb07891)
+
 
 **To check logs**
 
